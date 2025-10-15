@@ -94,6 +94,29 @@
         searchBtn.addEventListener("click", () => {
             checkWeather(searchBox.value);
         });
+        // === Autocomplete Feature ===
+        const cities = ["New York", "New Delhi", "London", "Paris", "Tokyo", "Los Angeles", "Chicago", "Mumbai", "Dhaka", "Sydney", "Berlin", "Moscow"]; // প্রয়োজনমতো আরো cities add করো
+        const suggestionBox = document.createElement("div");
+        suggestionBox.classList.add("suggestions");
+        document.querySelector(".search").appendChild(suggestionBox);
+
+        searchBox.addEventListener("input", () => {
+            const query = searchBox.value.toLowerCase();
+            suggestionBox.innerHTML = "";
+            if (query.length >= 1) {
+                const matches = cities.filter(city => city.toLowerCase().startsWith(query));
+                matches.forEach(match => {
+                    const div = document.createElement("div");
+                    div.textContent = match;
+                    div.addEventListener("click", () => {
+                        searchBox.value = match;
+                        suggestionBox.innerHTML = "";
+                        checkWeather(match);
+                    });
+                    suggestionBox.appendChild(div);
+                });
+            }
+        }); 
     </script>
 
 </body>
