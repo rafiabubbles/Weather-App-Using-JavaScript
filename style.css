@@ -7,6 +7,71 @@
 body{
     background: #222;
 }
+.card-navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.card-navbar .logo{
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.card-navbar .menu{
+    display: flex;
+    gap: 15px;
+}
+
+.card-navbar .menu a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.card-navbar .menu a:hover{
+    text-decoration: underline;
+}
+
+.card-navbar .hamburger{
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+.card-navbar .hamburger span{
+    height: 3px;
+    width: 20px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+/* Responsive for Card Navbar */
+@media (max-width: 500px){
+    .card-navbar .menu{
+        position: absolute;
+        top: 65px; /* adjust according to card padding */
+        right: 20px;
+        background: linear-gradient(135deg, #ff7e5f, #feb47b);
+        flex-direction: column;
+        width: 150px;
+        display: none;
+        padding: 10px;
+        border-radius: 10px;
+        z-index: 10;
+    }
+    .card-navbar .menu.show{
+        display: flex;
+    }
+    .card-navbar .hamburger{
+        display: flex;
+    }
+}
+
+
 .card {
     width: 90%;
     max-width: 470px;

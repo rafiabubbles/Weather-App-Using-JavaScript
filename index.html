@@ -11,11 +11,29 @@
 </head>
 
 <body>
+
     <div class="card">
+        <!-- Card Navbar Start -->
+        <div class="card-navbar">
+            <div class="logo">WeatherApp</div>
+            <div class="menu">
+                <a href="#">Home</a>
+                <a href="#">Forecast</a>
+                <a href="#">About</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!-- Card Navbar End -->
+
         <div class="search">
             <input type="text" placeholder="enter city name" spellcheck="false">
             <button><img src="./weather-app-img/images/search.png" alt="search area"></button>
         </div>
+
         <div class="error">
             <p>Invalid city name</p>
         </div>
@@ -95,7 +113,7 @@
             checkWeather(searchBox.value);
         });
         // === Autocomplete Feature ===
-        const cities = ["New York", "New Delhi", "London", "Paris", "Tokyo", "Los Angeles", "Chicago", "Mumbai", "Dhaka", "Sydney", "Berlin", "Moscow"]; // প্রয়োজনমতো আরো cities add করো
+        const cities = ["New York", "New Delhi", "London", "Paris", "Tokyo", "Los Angeles", "Chicago", "Mumbai", "Dhaka", "Sydney", "Berlin", "Moscow"];
         const suggestionBox = document.createElement("div");
         suggestionBox.classList.add("suggestions");
         document.querySelector(".search").appendChild(suggestionBox);
@@ -115,6 +133,14 @@
                     });
                     suggestionBox.appendChild(div);
                 });
+                // Card Navbar Hamburger toggle
+                const cardHamburger = document.querySelector(".card-navbar .hamburger");
+                const cardMenu = document.querySelector(".card-navbar .menu");
+
+                cardHamburger.addEventListener("click", () => {
+                    cardMenu.classList.toggle("show");
+                });
+
             }
         }); 
     </script>
